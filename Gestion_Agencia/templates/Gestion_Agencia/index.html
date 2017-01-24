@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block Titulo %}
+  Bienvenido a su AgenciaDeViajesUCO
+  <img src="os.path.join(BASE_DIR, 'Agencia/media/logo.gif')" width="260px" height="130px" style="margin-top:15px;"/>
+    {% if user.is_authenticated %}
+    <h3> Cree su equipo: {{user.username}} </h3>
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'Usuario:ingresar' %}">Inicia Sesión</a>
+      <a class="btn btn-success" href="{% url 'Usuario:nuevo_usuario' %}">Regístrate</a>
+    {% endif %}
+{% endblock %}
+{% block Contenido %}
+<div class="panel">
+  <div class="panel-body">
+    INSTRUCCIONES
+  </div>
+  <div class="panel-footer">
+    1 - Regístrese e Inicie Sesión
+    <br>
+    2.1 - Dentro de ciudades podrá ver aquellas en las que ofrecemos servicio
+    <br>
+	2.2 - Dentro de vuelos podrá ver las principales compañias para las que trabajamos
+    <br>
+	2.3 - Dentro de hoteles podrá ver las principales empresas para las que trabajamos
+    <br>
+    3 - Pulse en comprar para seleccionar el paquete que desea adquirir, ya sea vuelo u hotel, o ambos
+    <br>
+    4 - En su perfil podrá ver sus compras realizadas
+  </div>
+</div>
+{% endblock %}

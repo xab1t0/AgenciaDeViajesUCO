@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+  {% block Titulo %}
+    {{datosCiudad.nombre}}
+  {% endblock %}
+  {% block Imagen %}
+    <img src="{{datosCiudad.imagen.url}}" width="200px" height="200px" />
+  {% endblock %}
+  {% block Contenido %}
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Descripción</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosCiudad.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel">
+            <div div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Valor del Equipo:</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosEquipo.valor_Equipo}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Numero de Jugadores</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{contador}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:30px;">
+      <div class="panel panel-default">
+          <div class="panel-body">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Jugador</th>
+                          <th>Puntos</th>
+                          <th>Media Puntos</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for jugador in datosJugador%}
+                      <tr>
+                          <th scope="row">{{forloop.counter}}</th>
+                          <td><a href="{% url 'Gestion_App:jugador' jugador_id=jugador.id %}">{{ jugador.nombre_Jugador }}</a></td>
+                          <td>{{ jugador.puntos_Jugador }}</td>
+                          <td>{{ jugador.media_puntos_Jugador }}</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="Agencia de Viajes UCO">
+    <meta name="author" content="Javier Ramírez Quintero">
+    <meta name="theme-color" content="#3498DB">
+    <link rel="shortcut icon" href="#">
+    <title>Agencia de Viajes UCO</title>
+
+	<!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Gestion_APP/style.css' %}" />
+
+    <!-- Fonts from Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+	<!-- NavBar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+					<a class="navbar-brand" href="/">Agencia de Viajes UCO</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{% url 'Gestion_Agencia:ciudades'%}" class="dropdown-toggle">Ciudades</a></li>
+					<li><a href="{% url 'Gestion_Agencia:aviones'%}">Vuelos</a></li>
+					<li><a href="{% url 'Gestion_Agencia:hoteles'%}">Hoteles</a></li>
+					<li><a href="/clasificacion/">Clasificación</a></li>
+					<li><a href="/billetes/">Comprar</a></li>
+					{% if user.is_authenticated %}
+					<li>
+						<a href="/clasificacion/">
+						Usuario: {{user.username}}
+						</a>
+					</li>
+					<li>
+						<a class="btn" href="/usuario/cerrarsesion">Cerrar Sesión </a>
+					</li>
+					{% else %}
+					<li>
+						<a href="/usuario/ingreso">Iniciar Sesión</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<section class="main">
+		<div class="container">
+			<section class="mensaje">
+				<div class="jumbotron" style="">
+					<h1>{% block Titulo %}{% endblock %}</h1>
+					{% block Imagen %}{% endblock %}
+					{% block Login %}{% endblock %}
+				</div>
+			</section>
+			<section class="col-xs-12 col-sm-12">
+				{% block Clasificacion %} {% endblock %}
+			</section>
+			<section class="col-xs-12" style="padding-bottom:80px;">
+				{% block Contenido %} {% endblock %}
+			</section>
+		</div>
+	</section>
+
+	<footer style="">
+		<div class="footer-arriba">
+			<div class="container">
+				<div class="row">
+					<div class="footer-col col-md-4 col-xs-12">
+						<h3>Menú</h3>
+						<ul class="list-inline">
+							<li>
+								<a href="{% url 'Gestion_Agencia:ciudades'%}" class="dropdown-toggle">Ciudades</a>
+							</li>
+							<li>
+								<a href="{% url 'Gestion_Agencia:aviones'%}" class="btn-social btn-outline">Vuelos</a>
+							</li>
+							<li>
+								<a href="{% url 'Gestion_Agencia:hoteles'%}" class="btn-social btn-outline">Hoteles</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-col col-md-4 col-xs-12">
+                        <h3>Redes Sociales</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4 col-xs-12">
+                        <h3>Sobre AgenciaDeViajesUCO</h3>
+                        <p>Agencia de Viajes online, realizada por: <a href="https://github.com/xab1t0" style="color:white;">Javier Ramírez Quintero</a>, para la asignatura de PW.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-abajo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright © Javier Ramírez Quintero 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll -->
+    <div class="scroll-to-top affix" data-spy="affix" data-offset-top="200">
+        <a href="#home" class="smooth-scroll"><i class="glyphicon glyphicon-triangle-top"></i></a>
+    </div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script>
+        $(document).ready(function() {
+            // Boton subir
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 200) {
+                    $('.scroll-to-top').fadeIn(200);
+                } else {
+                    $('.scroll-to-top').fadeOut(200);
+                }
+            });
+            // Boton subir
+            $('.scroll-to-top').click(function(event) {
+                event.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 300);
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#nav_').singlePageNav({
+                offset: 50,
+                filter: ':not(.external)',
+                speed: 750,
+                currentClass: 'active',
+                beforeStart: function() {},
+                onComplete: function() {}
+            });
+        });
+    </script>
+</body>
+</html>
