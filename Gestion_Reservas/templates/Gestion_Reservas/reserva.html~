@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block Titulo %}
+	{{datosReserva.nombre_hotel}}
+{% endblock %}
+{% block Contenido %}
+	<div class="col-md-12">
+		<div class="panel">
+			<div class="panel-body" style="color: #FFFFFF;">
+				<h3 class="panel-title" style="color:black;">Detalles</h3>
+			</div>
+			<div class="panel-footer">
+				{% if datosReserva.nombre_usuario_id == 1 %}
+				<p>
+				Nombre Hotel: {{datosReserva.nombre_hotel}}
+				<br/>
+				Email Reserva: {{datosReserva.email}}
+				</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,30 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
 {% block Titulo %}
-  Bienvenido a su AgenciaViajesUCO
+  Bienvenido a su AgenciaDeViajesUCO
     {% if user.is_authenticated %}
-    <h3> Cree su equipo: {{user.username}} </h3>
+		{% if user.is_superuser == 0 %}
+    	<h3> Ya puede reservar: {{user.username}} </h3>
+		{% else %}
+		<h3> Bienvenid@: {{user.username}} (SuperUser)</h3>
+		{% endif %}
     {% else %}
+	  <br>
       <a class="btn btn-primary" href="{% url 'Usuario:ingresar' %}">Inicia Sesión</a>
       <a class="btn btn-success" href="{% url 'Usuario:nuevo_usuario' %}">Regístrate</a>
     {% endif %}
 {% endblock %}
 {% block Contenido %}
-<div class="panel">
-  <div class="panel-body">
-    INSTRUCCIONES
-  </div>
-  <div class="panel-footer">
-    1 - Regístrese e Inicie Sesión
-    <br>
-    2.1 - Dentro de ciudades podrá ver aquellas en las que ofrecemos servicio
-    <br>
-	2.2 - Dentro de vuelos podrá ver las principales compañias para las que trabajamos
-    <br>
-	2.3 - Dentro de hoteles podrá ver las principales empresas para las que trabajamos
-    <br>
-    3 - Pulse en comprar para seleccionar el paquete que desea adquirir, ya sea vuelo u hotel, o ambos
-    <br>
-    4 - En su perfil podrá ver sus compras realizadas
-  </div>
+<div class="row">
+  <div class="col-sm-4">
+    <p class="lead">INSTRUCCIONES<p>
+	{% if user.is_superuser == 1 %}
+	<div class="panel-footer">
+		1 - Dentro de ciudades podrá ver aquellas en las que ofrecemos servicio
+		<br>
+		2 - Dentro de hoteles podrá ver los hoteles de los que disponemos
+	</div>
+	{% else %}
+	<div class="panel-footer">
+		1 - Para reservar hotel debe Registrarse e Iniciar Sesión
+		<br>
+		2.1 - Dentro de ciudades podrá ver aquellas en las que ofrecemos servicio
+		<br>
+		2.2 - Dentro de hoteles podrá ver los hoteles de los que disponemos
+		<br>
+		2.2.1 - Pulse en Reservar Hotel para ir a la página para reservar el hotel
+		<br>
+		3 - En Mis Reservas podrá ver sus reservas realizadas
+	</div>
+	{% endif %}
+	</div>
+	<div class="col-sm-4">
+		<p class="lead">Creado con Django &amp; Bootstrap<p><center><img src="{% static 'img/logo.png' %}"/></center>
+	</div>
+	<div class="col-sm-4">
+		<p class="lead">Código abierto, siempre.<p><center><img src="{% static 'img/logo_info.gif' %}" width="250px" height="200px"/></center>
+	</div>
 </div>
 {% endblock %}

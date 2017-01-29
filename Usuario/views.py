@@ -42,7 +42,7 @@ def ingresar(request):
                 login(request, acceso)
                 return HttpResponseRedirect('/')
             else:
-                return render_to_response('incorrecto.html', context_instance=RequestContext(request))
+                return render(request, 'Usuario/incorrecto.html')
     else:
         form = AuthenticationForm()
     template = loader.get_template('Usuario/login.html')

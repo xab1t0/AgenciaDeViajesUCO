@@ -27,18 +27,31 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#EMAIL_HOST = 'smtp.gamil.com'
+#EMAIL_HOST_USER = 'jrqrami@gmail.com'
+#EMAIL_HOST_PASSWORD = 'password'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+
+'''
+Para usar gmail hay que desbloquear el captcha
+https://accounts.google.com/dispayunlockcaptcha
+'''
 
 # Application definition
 
 INSTALLED_APPS = [
+	#apps django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	#mis apps
 	'Gestion_Agencia',
 	'Usuario',
+	'Gestion_Reservas',
 ]
 
 MIDDLEWARE = [

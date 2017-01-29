@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+	{% block Titulo %}
+		CONTACTA CON NOSOTROS
+	{% endblock %}
+	{% block Contenido %}
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<form method="POST" action="">{% csrf_token %}
+				<table>{{form}}</table>
+				<input class="btn btn-primary" type="submit" value="Contactar">
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+  {% block Titulo %}
+    {{datosCiudad.nombre}}
+  {% endblock %}
+  {% block Imagen %}
+    <img src="{{datosCiudad.imagen.url}}" width="400px" height="300px" />
+  {% endblock %}
+  {% block Contenido %}
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Descripción</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosCiudad.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel">
+            <div div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">MÁS INFORMACIÓN</h3>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Transporte</h3>
+            </div>
+           <div class="panel-footer">
+                <p>
+				- Autobuses
+				<br>
+				- Taxis
+				<br>
+				- Aeropuerto
+				<br>
+				- Metro
+				</p>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Hoteles</h3>
+            </div>
+           <div class="panel-footer">
+				{% if datosCiudad.id == 1 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=3 %}">Hotel Grande Bretagne</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=4 %}">Coco-Mat Hotel Athens</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=5 %}">Plaka Hotel</a>
+				</p>
+				{% elif datosCiudad.id == 2 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=1 %}">Hotel Ribera de Triana</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=6 %}">Hotel Becquer</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=7 %}">Hotel Alfonso XIII</a>
+				</p>
+				{% elif datosCiudad.id == 3 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=8 %}">Hotel Jazz</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=9 %}">W Barcelona</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=10 %}">Hotel 1898</a>
+				</p>
+				{% elif datosCiudad.id == 4 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=11 %}">Artiem Madrid</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=12 %}">Hotel Preciados</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=13 %}">Hotel Gran Atlanta</a>
+				</p>
+				{% elif datosCiudad.id == 5 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=14 %}">Hotel Adonis Capital</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=15 %}">TRYP Tenerife</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=16 %}">Hotel Colon Rambla</a>
+				</p>
+				{% elif datosCiudad.id == 6 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=17 %}">Hotel Costa Azul</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=18 %}">Hotel Isla Mallorca & Spa</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=19 %}">HM Jaime III</a>
+				</p>
+				{% elif datosCiudad.id == 7 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=20 %}">TRYP París Ópera</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=21 %}">Hôtel de la Tour Eiffel</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=22 %}">Eurostars Panorama Hotel</a>
+				</p>
+				{% elif datosCiudad.id == 8 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=23 %}">Hotel Vincci Lys</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=24 %}">Hotel Sorolla Centro</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=25 %}">Ayre Hotel Astoria Palace</a>
+				</p>
+				{% elif datosCiudad.id == 9 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=2 %}">Hotel Zenit Málaga</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=26 %}">Hotel Molina Lario</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=27 %}">Barceló Málaga</a>
+				</p>
+				{% elif datosCiudad.id == 10 %}
+                <p>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=28 %}">Hotel Artemide</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=29 %}">Albergo del Senato</a>
+				<br>
+				- <a href="{% url 'Gestion_Agencia:hotel' hotel_id=30 %}">Palazzo Montemartini Hotel</a>
+				</p>
+				{% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

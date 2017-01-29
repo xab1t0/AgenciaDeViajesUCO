@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+	{% block Titulo %}
+		MIS RESERVAS
+	{% endblock %}
+{% block Contenido %}
+{% if user.id == 1 %}
+Es super usuario y no puede reservar
+{% elif user.id == 2 %}
+    {% for reservas in listaReservas %}
+	{% if reservas.nombre_usuario_id == 1 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 3 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 2 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 4 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 3 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+			<h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 5 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 4 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 6 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 5 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 7 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 6 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 8 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 7 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 9 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 8 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 10 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 9 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% elif user.id == 11 %}
+    {% for reservas in listaReservas %}
+    {% if reservas.nombre_usuario_id == 10 %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center">{{reservas.nombre_hotel}}</h3>
+			<p style="text-align:center">Email Reserva: {{reservas.email}}</p>
+        </div>
+      </div>
+    </div>
+	{% endif %}
+    {% endfor %}
+{% endif %}
+{% endblock %}
+
+

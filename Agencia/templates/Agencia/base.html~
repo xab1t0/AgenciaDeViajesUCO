@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Gestion_APP/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Gestion_Agencia/style.css' %}" />
 
     <!-- Fonts from Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
@@ -39,15 +39,13 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{% url 'Gestion_Agencia:ciudades'%}" class="dropdown-toggle">Ciudades</a></li>
-					<li><a href="{% url 'Gestion_Agencia:aviones'%}">Vuelos</a></li>
 					<li><a href="{% url 'Gestion_Agencia:hoteles'%}">Hoteles</a></li>
-					<li><a href="/clasificacion/">Clasificación</a></li>
-					<li><a href="/billetes/">Comprar</a></li>
 					{% if user.is_authenticated %}
 					<li>
-						<a href="/clasificacion/">
-						Usuario: {{user.username}}
-						</a>
+						<a href="/usuario/perfil/1/">Usuario: {{user.username}}</a>
+					</li>
+					<li>
+						<a href="/reservas/reservas">Mis Reservas</a>
 					</li>
 					<li>
 						<a class="btn" href="/usuario/cerrarsesion">Cerrar Sesión </a>
@@ -91,32 +89,13 @@
 								<a href="{% url 'Gestion_Agencia:ciudades'%}" class="dropdown-toggle">Ciudades</a>
 							</li>
 							<li>
-								<a href="{% url 'Gestion_Agencia:aviones'%}" class="btn-social btn-outline">Vuelos</a>
-							</li>
-							<li>
 								<a href="{% url 'Gestion_Agencia:hoteles'%}" class="btn-social btn-outline">Hoteles</a>
 							</li>
 						</ul>
 					</div>
 					<div class="footer-col col-md-4 col-xs-12">
-                        <h3>Redes Sociales</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
-                            </li>
-                        </ul>
+                        <h3>Contáctanos</h3>
+                        <a href="{% url 'Gestion_Agencia:contact'%}" class="dropdown-toggle" style="color:white;">Contactar</a>
                     </div>
                     <div class="footer-col col-md-4 col-xs-12">
                         <h3>Sobre AgenciaDeViajesUCO</h3>

@@ -1,5 +1,8 @@
 from django.shortcuts import render, HttpResponse, loader, redirect
-from Gestion_Agencia.models import Ciudad, Avion, Hotel
+from django.http.response import HttpResponseRedirect
+#from django.core.mail import send_mail
+from Gestion_Agencia.models import Ciudad, Hotel
+from forms import ContactForm, ContactReserva
 from django import template
 
 # View de la pagina principal.
@@ -31,28 +34,6 @@ def ciudad(request, ciudad_id):
 	}
 	return HttpResponse(template.render(context, request))
 
-# View que muestra todos los vuelos.
-def aviones(request):
-	listaAviones = Avion.objects.all()
-	aviones = Avion.objects.all().order_by('companyia')
-
-	template = loader.get_template('Gestion_Agencia/aviones.html')
-	context = {
-		'listaAviones': listaAviones,
-		'aviones': aviones,
-	}
-	return HttpResponse(template.render(context, request))
-
-# View de un vuelo especifico.
-def avion(request, avion_id):
-	listaAviones = Avion.objects.all()
-	datosAvion = Avion.objects.get(pk=avion_id)
-	template = loader.get_template('Gestion_Agencia/avion.html')
-	context = {
-		'datosAvion': datosAvion,
-	}
-	return HttpResponse(template.render(context, request))
-
 # View que muestra todos los hoteles.
 def hoteles(request):
 	listaHoteles = Hotel.objects.all()
@@ -72,5 +53,39 @@ def hotel(request, hotel_id):
 	template = loader.get_template('Gestion_Agencia/hotel.html')
 	context = {
 		'datosHotel': datosHotel,
+	}
+	return HttpResponse(template.render(context, request))
+
+#View para contactar con la agencia
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST or None)
+		if form.is_valid():
+			for key in form.cleaned_data:
+				print key
+				print form.cleaned_data.get(key)
+	return HttpResponseRedirect('/')
+	else:
+		form = ContactForm()
+	template = loader.get_template('Gestion_Agencia/nosotros.html')
+	context = {
+		'form': form,
+	}
+	return HttpResponse(template.render(context, request))
+
+#View para solicitar reservar hotel
+def contactR(request):
+	if request.method == 'POST':
+		form = ContactReserva(request.POST)
+		if form.is_valid():
+			for key in form.cleaned_data:
+				print key
+				print form.cleaned_data.get(key)
+		return HttpResponseRedirect('/')
+	else:
+		form = ContactReserva()
+	template = loader.get_template('Gestion_Agencia/contactReserva.html')
+	context = {
+		'el_form': form,
 	}
 	return HttpResponse(template.render(context, request))

@@ -13,19 +13,6 @@ class Ciudad(models.Model):
 		return self.nombre
 		return self.imagen
 
-class Avion(models.Model):
-    # Clase que contiene los vuelos hacia la ciudad
-	companyia = models.CharField(max_length=200) #Companyia del Vuelo
-	origen = models.TextField() #Ciudad origen del Vuelo
-	destino = models.TextField() #Ciudad origen del Vuelo
-	imagen = models.ImageField(upload_to='imagenes') #Imagen de la companya del Vuelo
-	valor = models.IntegerField(default = 0) #Valor del Vuelo
-
-	def __str__(self):
-		return self.companyia
-		return self.origen
-		return self.destino
-
 class Hotel(models.Model):
     # Clase que contiene los hoteles de la ciudad
 	nombre = models.CharField(max_length=200) #Nombre del Hotel

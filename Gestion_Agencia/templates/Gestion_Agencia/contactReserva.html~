@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+	{% block Titulo %}
+		SOLICITUD DE RESERVA
+	{% endblock %}
+	{% block Contenido %}
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<form method="POST" action="">{% csrf_token %}
+				<table>{{el_form}}</table>
+				<input class="btn btn-primary" type="submit" value="Solicitar">
+			</form>
+		</div>
+	</div>
+{% endblock %}

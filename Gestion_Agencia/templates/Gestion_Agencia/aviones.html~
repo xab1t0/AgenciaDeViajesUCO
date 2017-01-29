@@ -1,6 +1,6 @@
 {% extends "base.html" %}
   {% block Titulo %}
-    PRINCIPALES COMPAÑIAS AÉREAS
+    PRINCIPALES COMPAÑÍAS AÉREAS
   {% endblock %}
   {% block Contenido %}
     {% for aviones in listaAviones %}

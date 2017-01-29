@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+	{% block Titulo %}
+		MIS RESERVAS
+	{% endblock %}
+{% block Contenido %}
+    {% for ciudades in listaCiudades %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+            <h3 style="text-align:center"><a href="{% url 'Gestion_Reservas:reserva' reserva_id=reservas.id %}">{{reservas.nombre_hotel}}</a></h3>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+

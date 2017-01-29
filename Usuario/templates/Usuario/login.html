@@ -1,7 +1,10 @@
-{% extends "base.html" %} {% block Titulo %} INGRESAR {% endblock %}
+{% extends "base.html" %} 
+	{% block Titulo %} 
+		INGRESAR 
+	{% endblock %}
 {% block Contenido %}
-  <form id='formulario' method='post' action''>{% csrf_token %}
-    <table> {{form}}</table>
-    <p><input type="submit" value='Ingresar'/></p>
-  </form>
+<form id='formulario' method='post' action''>{% csrf_token %}
+	<table>{{form}}</table>
+	<p><input type="submit" value='Ingresar'/></p>
+</form>
 {% endblock %}

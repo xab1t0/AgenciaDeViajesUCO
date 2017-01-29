@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+	{% block Titulo %} 
+		REALIZAR RESERVA: {{user.username}}
+	{% endblock %}
+{% block Contenido %}
+	<form method="POST" action="">
+		{% csrf_token %}
+		<table>{{el_form}}</table>
+		<br/>
+		<p><input type="submit" name="submit" value="Reservar Hotel"></p>
+	</form>
+{% endblock %}

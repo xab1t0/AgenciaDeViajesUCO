@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+  {% block Titulo %}
+    {{datosHotel.nombre}}
+  {% endblock %}
+  {% block Imagen %}
+    <img src="{{datosHotel.imagen.url}}" width="400px" height="300px" />
+  {% endblock %}
+  {% block Contenido %}
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Descripción</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosHotel.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel">
+            <div div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">MÁS INFORMACIÓN</h3>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Ciudad</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosHotel.ciudad}}</p>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="panel">
+            <div class="panel-body" style="color: #FFFFFF;">
+                <h3 class="panel-title" style="color:black;">Precio Hab/Noche</h3>
+            </div>
+            <div class="panel-footer">
+                <p>{{datosHotel.valor}} €
+				<br/>
+				{% if user.is_authenticated %}
+					{% if user.is_superuser == 0 %}
+					<a class="btn btn-primary" href="{% url 'Gestion_Agencia:contactR'%}">Reservar</a>
+					<br/>
+					Se redirigirá a la página para reservar
+					{% else %}
+					SuperUsuario no puede reservar
+					{% endif %}
+				{% endif %}
+				</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

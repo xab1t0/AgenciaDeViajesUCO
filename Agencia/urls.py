@@ -23,6 +23,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('Gestion_Agencia.urls')),
     url(r'^usuario/', include('Usuario.urls')),
-    #url(r'^billetes/', include('Gestion_Billetes.urls')),
-    #url(r'^hoteles/', include('Gestion_Hoteles.urls')),
+    url(r'^reservas/', include('Gestion_Reservas.urls')),
 ]
