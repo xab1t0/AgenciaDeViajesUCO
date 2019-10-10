@@ -15,7 +15,7 @@
 
 ## Requisitos
 
-  Es necesario terner instalado [Django v1.10](https://www.djangoproject.com/) y [Python v2.7](https://www.python.org/download/releases/2.7/)
+  Es necesario tener instalado [Django v1.10](https://www.djangoproject.com/) y [Python v2.7](https://www.python.org/download/releases/2.7/)
 
   Además ya que incorpora imágenes necesitamos: [Pillow](http://pillow.readthedocs.io/en/3.1.x/installation.html)
   ```
