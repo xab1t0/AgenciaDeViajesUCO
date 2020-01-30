@@ -1,7 +1,6 @@
 # Agencia de Viajes UCO
   Trabajo Final para la asignatura de Programación Web (PW).
   Trabajo realizado por [Javier Ramírez Quintero](https://github.com/xab1t0)
-  Puedes probar el trabajo (http://xab1t0.pythonanywhere.com/)
 
 
 ## Descripción
